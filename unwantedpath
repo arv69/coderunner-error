@@ -1,0 +1,17 @@
+It seems you are using "Code Runner" extension in VS Code.
+You can simply clear these extra text by adding the command for clearing the console in "executorMap" of code runner.
+
+Go to Settings.json > Search for "code-runner.executorMap" > search language (C/C++)
+
+change it to :
+
+"c": "cls && cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+"cpp": "cls && cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+
+ Comment ·  Hide 2
+pixiedust07-4351 · Jan 30 2022 at 5:40 PM
+Thank you very much! This was exactly what i was looking for.
+just a quick note use clear instead of cls if you are running on wsl or any linux distros
+
+ "c": "clear && cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+ "cpp": "clear && cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
